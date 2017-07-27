@@ -6,7 +6,7 @@ This implementation gives you 53-bit integers.
 
 ## The problem
 
-The GraphQL spec limits its `Int` type to 32-bits. Maybe you've seen this error before:
+The [GraphQL spec](https://facebook.github.io/graphql/#sec-Int) limits its `Int` type to 32-bits. Maybe you've seen this error before:
 
 ```
 GraphQLError: Argument "num" has invalid value 9007199254740990.
