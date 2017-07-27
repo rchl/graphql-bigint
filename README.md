@@ -1,8 +1,7 @@
-graphql-bigint
+GraphQL BigInt
 =============
 
-A wider integer type for [graphql-js](https://github.com/graphql/graphql-js) than the default 32-bit `GraphQLInt`.
-This implementation gives you 53-bit integers.
+### A long integer type for [graphql-js](https://github.com/graphql/graphql-js). This implementation gives you 53 bits rather than the default 32-bit `GraphQLInt`.
 
 ## The problem
 
