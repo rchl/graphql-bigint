@@ -117,9 +117,9 @@ const invalidVariables = {
 graphql(schema, invalidQuery1)
   .then(({ data, errors }) => {
     expect(errors).to.have.lengthOf(3)
-    expect(errors[0].message).to.equal('Argument "num" has invalid value 9007199254740992.\nExpected type "BigInt", found 9007199254740992.')
-    expect(errors[1].message).to.equal('Argument "num" has invalid value "1".\nExpected type "BigInt", found "1".')
-    expect(errors[2].message).to.equal('Argument "num" has invalid value "".\nExpected type "BigInt", found "".')
+    expect(errors[0].message).to.equal('Expected type BigInt!, found 9007199254740992; BigInt cannot represent non 53-bit signed integer value: 9007199254740992');
+    expect(errors[1].message).to.equal('Expected type BigInt!, found "1"; BigInt cannot represent non 53-bit signed integer type: StringValue');
+    expect(errors[2].message).to.equal('Expected type BigInt!, found ""; BigInt cannot represent non 53-bit signed integer type: StringValue');
     expect(data).to.equal(undefined)
     return graphql(schema, invalidQuery2)
   })
@@ -155,7 +155,7 @@ graphql(schema, invalidQuery1)
   })
   .then(({ data, errors }) => {
     expect(errors).to.have.lengthOf(1)
-    expect(errors[0].message).to.equal('Variable "$input3" got invalid value {"num":9007199254740992}.\nIn field "num": Expected type "BigInt", found 9007199254740992: BigInt cannot represent non 53-bit signed integer value: 9007199254740992')
+    expect(errors[0].message).to.equal('Variable "$input3" got invalid value 9007199254740992 at "input3.num"; Expected type BigInt. BigInt cannot represent non 53-bit signed integer value: 9007199254740992')
     expect(data).to.equal(undefined)
     return graphql(schema, validMutation, null, null, validVariables)
   })
